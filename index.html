@@ -1,634 +1,521 @@
-  <!DOCTYPE html>
-  <html lang="es-CO">
-    <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="x-ua-compatible" content="ie=edge" />
-      <meta name="Description" content="StreaMetal - Emisora online" />
-      <meta
-        name="Keywords"
-        content="Power metal, Death metal, Heavy metal, Hard rock, Progressive Metal, Symphonic metal, Alternative rock, Melodic Death metal, Thrash metal, Folk metal"
-      />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>StreaMetal | Emisora online</title>
-      <style>
-      	* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+<!DOCTYPE html>
+<html lang="es-CO">
 
-  body {
-    font-size: 16px;
-  }
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="Description" content="StreaMetal - Emisora online" />
+    <meta name="Keywords"
+        content="Power metal, Death metal, Heavy metal, Hard rock, Progressive Metal, Symphonic metal, Alternative rock, Melodic Death metal, Thrash metal, Folk metal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StreaMetal | Emisora online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  html {
-    scroll-behavior: smooth;
-  }
+        body {
+            font-size: 16px;
+        }
 
-  a.navbar-brand {
-    margin-left: 1em;
-  }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  a.btn-link {
-    color: #ffffff;
-    text-decoration: none;
-  }
+        a.navbar-brand {
+            margin-left: 1em;
+        }
 
-  a.nav-link:hover {
-    color: #f14444;
-  }
+        a.btn-link {
+            color: #ffffff;
+            text-decoration: none;
+        }
 
-  a.btn-link:hover {
-    color: #f14444;
-  }
+        a.nav-link:hover {
+            color: #f14444;
+        }
 
-  .carousel-item,
-  .d-block {
-    margin: 2em auto 0;
-  }
+        a.btn-link:hover {
+            color: #f14444;
+        }
 
-  .d-block {
-    width: 100%;
-  }
+        .carousel-item,
+        .d-block {
+            margin: 2em auto 0;
+        }
 
-  img.d-block {
-    height: 500px;
-  }
+        .d-block {
+            width: 100%;
+        }
 
-  div.collapse.navbar-collapse {
-    margin-right: 3em;
-    flex-grow: 0;
-  }
+        /*Flecha para hacer la pagina hacia arriba*/
+        .ir-arriba{
+            display:none;
+            background-repeat:no-repeat;
+            font-size:20px;
+            color:black;
+            cursor:pointer;
+            position:fixed;
+            bottom:10px;
+            right:10px;
+            z-index:2;
+        }
 
-  .footer {
-    text-align: left;
-  }
+        img.d-block {
+            height: 500px;
+        }
 
-  /* Facebook */
-  i.fa-facebook-f {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
+        div.collapse.navbar-collapse {
+            margin-right: 3em;
+            flex-grow: 0;
+        }
 
-  i.fa-facebook-f,
-  p.fb {
-    display: inline;
-    font-size: 0.9em;
-    margin-left: 5px;
-  }
+        .footer, .love {
+            display: inline;
+            text-align: left;
+        }
 
-  a.dropdown-item.fb:hover {
-    background: #1278f3;
-    color: #ffffff;
-  }
+        /* Facebook */
+        i.fa-facebook-f {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
 
-  /* Twitter */
-  i.fa-twitter {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
+        i.fa-facebook-f,
+        p.fb {
+            display: inline;
+            font-size: 0.9em;
+            margin-left: 5px;
+        }
 
-  i.fa-twitter,
-  p.tw {
-    display: inline;
-    font-size: 0.9em;
-    margin-left: 2.4px;
-  }
+        a.dropdown-item.fb:hover {
+            background: #1278f3;
+            color: #ffffff;
+        }
 
-  a.dropdown-item.tw:hover {
-    background: #1d9bf0;
-    color: #ffffff;
-  }
+        /* Twitter */
+        i.fa-twitter {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
 
-  /* Instagram */
-  i.fa-instagram {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
+        i.fa-twitter,
+        p.tw {
+            display: inline;
+            font-size: 0.9em;
+            margin-left: 2.4px;
+        }
 
-  i.fa-instagram,
-  p.ig {
-    display: inline;
-    font-size: 0.9em;
-    margin-left: 5px;
-  }
+        a.dropdown-item.tw:hover {
+            background: #1d9bf0;
+            color: #ffffff;
+        }
 
-  a.dropdown-item.ig:hover {
-    background: #ca3451;
-    color: #ffffff;
-  }
+        /* Instagram */
+        i.fa-instagram {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
 
-  /* Corazones */
-  i.fa-heart {
-    display: inline;
-    font-size: 0.9em;
-    color: #f14444;
-  }
+        i.fa-instagram,
+        p.ig {
+            display: inline;
+            font-size: 0.9em;
+            margin-left: 5px;
+        }
 
-  p.love {
-    text-align: center;
-    font-size: 0.8em;
-    font-weight: bold;
-  }
+        a.dropdown-item.ig:hover {
+            background: #ca3451;
+            color: #ffffff;
+        }
 
-  @media only screen and (max-width: 990px) {
-    .logo-radio {
-      width: 330px;
-    }
+        /* Corazones */
+        i.fa-heart {
+            font-size: 0.9em;
+            color: #f14444;
+        }
 
-    div.collapse.navbar-collapse,
-    div.dropdown-menu.show {
-      text-align: center;
-    }
-  }
+        p.love {
+            font-size: 0.8em;
+            font-weight: bold;
+        }
 
-  @media only screen and (max-width: 768px) {
-    .logo-radio {
-      width: 290px;
-    }
+        @media only screen and (max-width: 990px) {
+            .logo-radio {
+                width: 330px;
+            }
 
-    div.collapse.navbar-collapse {
-      text-align: center;
-    }
+            div.collapse.navbar-collapse,
+            div.dropdown-menu.show {
+                text-align: center;
+            }
+        }
 
-    div.dropdown-menu.show {
-      margin: auto;
-      width: 20px;
-      text-align: justify;
-    }
-  }
+        @media only screen and (max-width: 768px) {
+            .logo-radio {
+                width: 290px;
+            }
 
-  @media only screen and (max-width: 480px) {
-    .logo-radio {
-      width: 240px;
-    }
+            div.collapse.navbar-collapse {
+                text-align: center;
+            }
 
-    div.collapse.navbar-collapse {
-      text-align: center;
-    }
+            div.dropdown-menu.show {
+                margin: auto;
+                width: 20px;
+                text-align: justify;
+            }
+        }
 
-    div.dropdown-menu.show {
-      margin: auto;
-      width: 20px;
-      text-align: justify;
-    }
-  }
+        @media only screen and (max-width: 480px) {
+            .logo-radio {
+                width: 240px;
+            }
 
-      </style>
-      <!-- LINKS EXTERNOS -->
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css"
-      />
-      <link
-        rel="stylesheet"
-        id="roboto-subset.css-css"
+            div.collapse.navbar-collapse {
+                text-align: center;
+            }
+
+            div.dropdown-menu.show {
+                margin: auto;
+                width: 20px;
+                text-align: justify;
+            }
+        }
+    </style>
+    <!-- LINKS EXTERNOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css" />
+    <link rel="stylesheet" id="roboto-subset.css-css"
         href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5"
-        type="text/css"
-        media="all"
-      />
-      <!-- FontAwesome -->
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        type="text/css" media="all" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      />
-      <!-- CSS Boostrap -->
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-        crossorigin="anonymous"
-      />
-      <link
-        href="https://cdn.mexiserver.com/html5players/7/audio6_html5.css"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i"
-        rel="stylesheet"
-      />
-      <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        type="text/javascript"
-      ></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-      <script
-        src="https://cdn.mexiserver.com/html5players/7/js/jquery.mousewheel.min.js"
-        type="text/javascript"
-      ></script>
-      <script
-        src="https://cdn.mexiserver.com/html5players/7/js/jquery.touchSwipe.min.js"
-        type="text/javascript"
-      ></script>
-      <script
-        src="https://cdn.mexiserver.com/html5players/7/js/audio6_html5.js"
-        type="text/javascript"
-      ></script>
-      <!-- JS Boostrap -->
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"
-      ></script>
-    </head>
-    <body>
-      <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link href="https://cdn.mexiserver.com/html5players/7/audio6_html5.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.mexiserver.com/html5players/7/js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="https://cdn.mexiserver.com/html5players/7/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+
+    <!-- JS Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <!-- GOOGLE TRANSLATE -->
-    <div id="google_translate_element" style="position:fixed;top:0;right:0;"></div>
-    
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-    }
-  </script>
-    
-    <!-- API Google Translate -->
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <div id="google_translate_element" style="position:fixed;top:0;right:0;"></div>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+            }
+        </script>
+
+        <!-- API Google Translate -->
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
         <div class="container-fluid">
-          <a class="navbar-brand" href="https://streametal.blogspot.com/">
-            <img
-              src="https://3.bp.blogspot.com/-WBG3KRMGcPw/X8FxPmShXlI/AAAAAAAALRg/1WH8Z403vcc3avGnP5LBMq8xYPsrcdH9gCK4BGAYYCw/s1600/StreaMetal.png"
-              alt="StreaMetal | Emisora online"
-              class="logo-radio"
+            <a class="navbar-brand" href="http://streametal.blogspot.com/">
+                <img src="https://3.bp.blogspot.com/-WBG3KRMGcPw/X8FxPmShXlI/AAAAAAAALRg/1WH8Z403vcc3avGnP5LBMq8xYPsrcdH9gCK4BGAYYCw/s1600/StreaMetal.png"
+                    alt="StreaMetal | Emisora online" class="logo-radio" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="http://streametal.blogspot.com/">Inicio
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#acerca">Sobre la emisora</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#chat">Chat</a>
+                    </li>
+                    
+                </ul>
+                <!-- <form class="d-flex">
+            <input
+              class="form-control me-sm-2"
+              type="text"
+              placeholder="Search"
             />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor02"
-            aria-controls="navbarColor02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="https://streametal.blogspot.com/"
-                  >Inicio
-                  <span class="visually-hidden">(current)</span>
-                </a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  >Contacto</a
-                >
-                <div class="dropdown-menu">
-                  <h5 class="dropdown-header" style="text-align: center">
-                    Redes sociales
-                  </h5>
-                  <a class="dropdown-item fb" href="#">
-                    <i class="fa-brands fa-facebook-f"></i>
-                    <p class="fb">Facebook</p>
-                  </a>
-                  <a class="dropdown-item tw" href="#">
-                    <i class="fa-brands fa-twitter"></i>
-                    <p class="tw">Twitter</p>
-                  </a>
-                  <a class="dropdown-item ig" href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                    <p class="ig">Instagram</p>
-                  </a>
-                  <div class="dropdown-divider love"></div>
-                  <p class="love">
-                    <i class="fa-solid fa-heart"></i>
-                    Hecho con amor
-                    <i class="fa-solid fa-heart"></i>
-                  </p>
-                </div>
-              </li>
-            </ul>
-            <!-- <form class="d-flex">
-              <input
-                class="form-control me-sm-2"
-                type="text"
-                placeholder="Search"
-              />
-              <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-                Search
-              </button>
-            </form> -->
-          </div>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form> -->
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <!-- Carousel -->
-      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
         <!-- Indicators/dots -->
         <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="0"
-            class="active"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="3"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="4"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="5"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="6"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="7"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="8"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="9"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#demo"
-            data-bs-slide-to="10"
-          ></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="9"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="10"></button>
         </div>
 
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdrX4FJDxLu96IjOFU45it3Eczaz39ayvRhPusFj4sWX7g8mWNrsrWV3GtWpemaQaTQ5QjGVH7ZuHeAg-LRjJx3IR0fGmAVq88bd3fQu837a0X9RvnILmzHorIhWt7XNz_teBb0X3blnPKDAb_NwFxJuMZ19tegXpH7NkKGAICm43K5IOayCq6iFEE/s16000/alternative-rock.png"
-              alt="Alternative Rock"
-              class="d-block"
-            />
-            <div class="carousel-caption">
-              <h3>Lo mejor del Rock Alternativo</h3>
-              <p>Está en programación</p>
+            <div class="carousel-item active">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdrX4FJDxLu96IjOFU45it3Eczaz39ayvRhPusFj4sWX7g8mWNrsrWV3GtWpemaQaTQ5QjGVH7ZuHeAg-LRjJx3IR0fGmAVq88bd3fQu837a0X9RvnILmzHorIhWt7XNz_teBb0X3blnPKDAb_NwFxJuMZ19tegXpH7NkKGAICm43K5IOayCq6iFEE/s16000/alternative-rock.png"
+                    alt="Alternative Rock" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Lo mejor del Rock Alternativo</h3>
+                    <p>Está en programación</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjecxYkEc27V_FVvTCTAW9pzId1DwTEp0LPP3xrePgqEsynML8TNQPGDSiGwBzAKDH1bpcUOEsWbnq8nLANuFDpyLYXGR9a4tJTjjviQUB4wnPp_5K9i5ng-0Dl8lnmBvL5xO5ATVpjwCOlmfUK2SpUeMjKUz1QBaFu-P_Touzqr2gSqVQRk06rtU3z/s16000/death-metal.png" alt="Death Metal" class="d-block" />
-            <div class="carousel-caption">
-              <h3>Un género brutal</h3>
-              <p>El Death Metal está en programación</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjecxYkEc27V_FVvTCTAW9pzId1DwTEp0LPP3xrePgqEsynML8TNQPGDSiGwBzAKDH1bpcUOEsWbnq8nLANuFDpyLYXGR9a4tJTjjviQUB4wnPp_5K9i5ng-0Dl8lnmBvL5xO5ATVpjwCOlmfUK2SpUeMjKUz1QBaFu-P_Touzqr2gSqVQRk06rtU3z/s16000/death-metal.png"
+                    alt="Death Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Un género brutal</h3>
+                    <p>El Death Metal está en programación</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3o5R21OTgjBVV03SHVGdEus418_ti8OoZD4cNLGW_jmX6jl-qWO1Lr2moINNqHcl_93oQ13BQplS9VRul8hF_V-nrH3aMtTUa0-7SKZOMaO8qcuiFghJSAfdzLWZdJKfvXKV_YCBxEvNLHnMK54bgZPTPrRNypo5m5MKv5il72BZnroIlFYy-fEbB/s16000/folk-metal.png" alt="Folk Metal" class="d-block" />
-            <div class="carousel-caption">
-              <h3>Sonidos de escandinavia y del mundo</h3>
-              <p>El Folk Metal no se queda atrás</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3o5R21OTgjBVV03SHVGdEus418_ti8OoZD4cNLGW_jmX6jl-qWO1Lr2moINNqHcl_93oQ13BQplS9VRul8hF_V-nrH3aMtTUa0-7SKZOMaO8qcuiFghJSAfdzLWZdJKfvXKV_YCBxEvNLHnMK54bgZPTPrRNypo5m5MKv5il72BZnroIlFYy-fEbB/s16000/folk-metal.png"
+                    alt="Folk Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Sonidos de escandinavia y del mundo</h3>
+                    <p>El Folk Metal no se queda atrás</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHn0JY53K-ok6qTq3mGTny7GKVEXspWosibShtYb8G9bDttgg0a7-QwcQSLT2Gp-4HCFejy-yslvr22Myln8aaaN_MsFLqQZZ5M9pC1gtReLlr8Yioleqg72EMmoswLj17owYp-uoeXr4gOI-FRWgy0s-aJ7a0kc__TRKktc-QJQ9Yjpyjy-sWy1Tq/s16000/hardrock.jpg" alt="Hard Rock" class="d-block" />
-            <div class="carousel-caption">
-              <h3>Los temas más populares y trascendetales</h3>
-              <p>que han marcado la historia del Rock están acá</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHn0JY53K-ok6qTq3mGTny7GKVEXspWosibShtYb8G9bDttgg0a7-QwcQSLT2Gp-4HCFejy-yslvr22Myln8aaaN_MsFLqQZZ5M9pC1gtReLlr8Yioleqg72EMmoswLj17owYp-uoeXr4gOI-FRWgy0s-aJ7a0kc__TRKktc-QJQ9Yjpyjy-sWy1Tq/s16000/hardrock.jpg"
+                    alt="Hard Rock" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Los temas más populares y trascendetales</h3>
+                    <p>que han marcado la historia del Rock están acá</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimd0Dx2w-GTefUdvw0wGhgTxgqNvFySkVjiHQVXyJyu7q7HKywcOfaW_RFBj-GNdn1267pb_40q8SnwKvTyF_V3emyFGrB3YrV0KAHRjJi-jcnu1LiTqAoOd4RPek4D3V4agwPHhmd9jOoxmOfraJLpf-Kyq5bgRhL5LnfOjT3_-3MU8O855ZAPiJp/s16000/heavymetal.jpg" alt="Heavy Metal" class="d-block" />
-            <div class="carousel-caption">
-              <h3>Heavy Metal - Música potente</h3>
-              <p>¡En Vivo! En programación</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimd0Dx2w-GTefUdvw0wGhgTxgqNvFySkVjiHQVXyJyu7q7HKywcOfaW_RFBj-GNdn1267pb_40q8SnwKvTyF_V3emyFGrB3YrV0KAHRjJi-jcnu1LiTqAoOd4RPek4D3V4agwPHhmd9jOoxmOfraJLpf-Kyq5bgRhL5LnfOjT3_-3MU8O855ZAPiJp/s16000/heavymetal.jpg"
+                    alt="Heavy Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Heavy Metal - Música potente</h3>
+                    <p>¡En Vivo! En programación</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiurTcQou-iZeBFT_vRMsH_hhZdBeUu4srnYAE-G0VRdxX-jo7BPh5svByQPYjGdkN5GUkbQFehpe6o9GdrdXTa9fJxjZlcUp0fUUrGt6RjdWaq49aUqts_7-j1DqbTEJN-fJrK1mDeMsQF2hdWAOwJ3XF1-FBTvk7rWD8MIvfrsDjeDSXP56Rkob7x/s16000/melodic-death-metal.jpg"
-              alt="Melodic Death Metal"
-              class="d-block"
-            />
-            <div class="carousel-caption">
-              <h3>Combinación de sonidos más pesados</h3>
-              <p>y melódicos, en programación</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiurTcQou-iZeBFT_vRMsH_hhZdBeUu4srnYAE-G0VRdxX-jo7BPh5svByQPYjGdkN5GUkbQFehpe6o9GdrdXTa9fJxjZlcUp0fUUrGt6RjdWaq49aUqts_7-j1DqbTEJN-fJrK1mDeMsQF2hdWAOwJ3XF1-FBTvk7rWD8MIvfrsDjeDSXP56Rkob7x/s16000/melodic-death-metal.jpg"
+                    alt="Melodic Death Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Combinación de sonidos más pesados</h3>
+                    <p>y melódicos, en programación</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRyLBUVseeFMmWazgfA439EX3zJvTyvuOmR67OibX8UQCZfglw0NCGkbrJuBqqyazOHrwOFxoq9Nn_tUYPNI5XDx8EZB4WsnaPdAq2jXyF_FWrXtLB2teTzka5xV2shtD6yRbBUs2Fj5bcv-XJniWfCuT0rXtWKXtJO6NyxP13P8lxawjHzDlw-zN2/s16000/power-metal.png" alt="Power Metal" class="d-block" />
-            <div class="carousel-caption">
-              <h3>El sub-género más poderoso</h3>
-              <p>del Metal. En programación</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRyLBUVseeFMmWazgfA439EX3zJvTyvuOmR67OibX8UQCZfglw0NCGkbrJuBqqyazOHrwOFxoq9Nn_tUYPNI5XDx8EZB4WsnaPdAq2jXyF_FWrXtLB2teTzka5xV2shtD6yRbBUs2Fj5bcv-XJniWfCuT0rXtWKXtJO6NyxP13P8lxawjHzDlw-zN2/s16000/power-metal.png"
+                    alt="Power Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>El sub-género más poderoso</h3>
+                    <p>del Metal. En programación</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8VN4j369FQn-dGKSx1x2Zr49eZRLOurihyDFrDiQoTzWjv6__Ez1SjDJzKeTqkV-ZupUPaceq12nTxuInXIOj9IhhoQkSR90dUd4dq5xjds4D6pr-PArHdPoH72FYeY3yfHcNJhaW1utGJuIShWjrr-XMqwTuNY2KpCsfDccjSXddfyO9O0qPcRQT/s16000/progressive-metal.jpg"
-              alt="Progressive Metal"
-              class="d-block"
-            />
-            <div class="carousel-caption">
-              <h3>Guitarras, bajos, percusiones, entre otros...</h3>
-              <p>conforman un sonido post-moderno</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8VN4j369FQn-dGKSx1x2Zr49eZRLOurihyDFrDiQoTzWjv6__Ez1SjDJzKeTqkV-ZupUPaceq12nTxuInXIOj9IhhoQkSR90dUd4dq5xjds4D6pr-PArHdPoH72FYeY3yfHcNJhaW1utGJuIShWjrr-XMqwTuNY2KpCsfDccjSXddfyO9O0qPcRQT/s16000/progressive-metal.jpg"
+                    alt="Progressive Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Guitarras, bajos, percusiones, entre otros...</h3>
+                    <p>conforman un sonido post-moderno</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxo3XogGsJF8BoA3V_3ejiTX7G2irUun-GddZz3ckizfbxTJmQG1v9ANp3JU0ScEqOPUWOPK3YLy-InAgthfvwI8ZhKzoS-2rubGi7_PCFrWLbBRoS0BjWODOAwUAMeyotGLu6JjmOEpd9JiOQME7OClZ2y7Sld29OybCNIPEpgNphYKPOErxZu16u/s16000/rock-pop.png" alt="Rock Pop" class="d-block" />
-            <div class="carousel-caption">
-              <h3>Las canciones más escuchadas</h3>
-              <p>¡Rock-Pop! En programación</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxo3XogGsJF8BoA3V_3ejiTX7G2irUun-GddZz3ckizfbxTJmQG1v9ANp3JU0ScEqOPUWOPK3YLy-InAgthfvwI8ZhKzoS-2rubGi7_PCFrWLbBRoS0BjWODOAwUAMeyotGLu6JjmOEpd9JiOQME7OClZ2y7Sld29OybCNIPEpgNphYKPOErxZu16u/s16000/rock-pop.png"
+                    alt="Rock Pop" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Las canciones más escuchadas</h3>
+                    <p>¡Rock-Pop! En programación</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguX0lT2TYsTNToC3ynJ6lUpjLY9wOwL3rCm1x2dUZEb_g0yf8acHyPftXJQMKr93wkw-FW-MA95RxA9fTYVTpEAEROI2AUftuRHQ1fB2xGYG-J4f7o-MMHt3-7K35s0ndaKsqIBTYEZ6OceFNCd-7xXtsjoPdU5Z-dth-MSJJR3MNHDhrZx3XKWvc5/s16000/symphonic-metal.png"
-              alt="Symphonic Metal"
-              class="d-block"
-            />
-            <div class="carousel-caption">
-              <h3>La sinfonía del Metal</h3>
-              <p>Está aquí</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguX0lT2TYsTNToC3ynJ6lUpjLY9wOwL3rCm1x2dUZEb_g0yf8acHyPftXJQMKr93wkw-FW-MA95RxA9fTYVTpEAEROI2AUftuRHQ1fB2xGYG-J4f7o-MMHt3-7K35s0ndaKsqIBTYEZ6OceFNCd-7xXtsjoPdU5Z-dth-MSJJR3MNHDhrZx3XKWvc5/s16000/symphonic-metal.png"
+                    alt="Symphonic Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>La sinfonía del Metal</h3>
+                    <p>Está aquí</p>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgWUulUaok2LDS7dvQ8ivlgCgnqmp_HDj8l4I64iwfXeUKvKG1-URfi16fUJWNnPyXgZTdmnhYFGdgycx7Y1xgpEAX8ao15bxzDbjDoBxiz82Xqi0JfJxf4TOxaBNJos0dXsA25NxtuNu725ZauhPsWgCKoG5qySi6oMVuRubA-igAJnIKqDQjCLE4/s16000/thrash-metal.png" alt="Thrash Metal" class="d-block" />
-            <div class="carousel-caption">
-              <h3>Los sonidos más pesados</h3>
-              <p>Thrash Metal. En programación</p>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgWUulUaok2LDS7dvQ8ivlgCgnqmp_HDj8l4I64iwfXeUKvKG1-URfi16fUJWNnPyXgZTdmnhYFGdgycx7Y1xgpEAX8ao15bxzDbjDoBxiz82Xqi0JfJxf4TOxaBNJos0dXsA25NxtuNu725ZauhPsWgCKoG5qySi6oMVuRubA-igAJnIKqDQjCLE4/s16000/thrash-metal.png"
+                    alt="Thrash Metal" class="d-block" />
+                <div class="carousel-caption">
+                    <h3>Los sonidos más pesados</h3>
+                    <p>Thrash Metal. En programación</p>
+                </div>
             </div>
-          </div>
         </div>
 
         <!-- Left and right controls/icons -->
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#demo"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon"></span>
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
         </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#demo"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon"></span>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
         </button>
-      </div>
+    </div>
 
-      <!-- PLANTILLA -->
-      <section id="about" class="about">
+    <!-- PLANTILLA -->
+    <section id="about" class="about">
         <div class="container">
-          <div class="row">
-            <div
-              class="col-xl-5 col-lg-6 d-flex justify-content-center video-box align-items-stretch position-relative"
-            >
-              <a
-                href="https://www.youtube.com/watch?v=jDDaplaOz7Q"
-                class="glightbox play-btn mb-4"
-              ></a>
-            </div>
-            <h2>StreaMetal</h2>
-            <p>
-              Este es un blog sin ánimo de lucro, ya que tiene como única misión
-              de programar música de este maravilloso género
-              <strong>Heavy Metal.</strong> Para más información dejo el link del
-              siguiente <a href="#">contacto</a>. La música programada es para
-              compartir con el público. Por ahora cero <em>anuncios</em>, y más
-              libertad de contenido. A través del link compartido también pueden
-              solicitar sus canciones de Rock y Metal preferidos. Radio-blog hecho
-              desde Colombia <i class="flag flag-colombia"></i>para todo el mundo.
-            </p>
-            <p>
-              <strong>Nota: </strong>Esta página es una adaptación reciente. Fue maquetada con HTML, CSS y Bootstrap.
-              Poco a poco irán mostrando más secciones y opciones. Los botones de redes sociales y el link del contacto aún no están habilitados.
-              Gracias por visitar el radio-blog.
-            </p>
-            <p>
-            Si no les carga el reproductor, puede dar clic <a href="http://streametal.blogspot.com/">aquí</a> para refrescar la página y así, podrán reproducir la música en vivo.
-          </p>
-          </div>
-        </div>
-      </section>
+            <div class="row">
+                <div
+                    class="col-xl-5 col-lg-6 d-flex justify-content-center video-box align-items-stretch position-relative">
+                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+                </div>
+                <h2 id="acerca">StreaMetal</h2> <a href="http://streametal.blogspot.com"><h5>(Pon a funcionar la radio y el chat)</h5></a>
+                <p>
+                    Bienvenidos a StreaMetal, su emisora online. Radio-blog hecho
+                    desde Colombia <i class="flag flag-colombia"></i> para todo el mundo. La música programada es para
+                    compartir con el público, sin <strong>anuncios</strong>, y más libertad de contenido.
+                </p>
 
-      <!-- <div class="descripcion">
-        <p>
-          StreaMetal también es el lugar donde ustedes pueden sugerir los
-          sub-géneros del rock y metal, con el fin de descubrir y compartir
-          artistas y agrupaciones. En la barra de los comentarios pueden sugerir
-          los géneros y agrupaciones para que StreaMetal ponga al aire. Radio-blog
-          hecho desde Colombia para todo el mundo
-        </p>
-      </div> -->
-      <!-- REPRODUCTOR JavaScript - JQuery -->
-      <div class="player">
+                <p>
+                    Blog sin ánimo de lucro, y para los amantes del <strong>Rock y Metal</strong>, está habilitado el chat <strong>#StreaMetal📻🎸</strong> para interactuar con los que gustan escuchar buena música, conversar y pasar un rato agradable. También pueden solicitar sus canciones <strong>Rock y Metal</strong> favoritos.
+                </p>
+
+                <p>
+                    Las peticiones se puede realizar en el chat a <strong>@Radio-StreaMetal</strong>.
+                </p>
+                
+                <p>
+                    <strong>¡Gracias por visitar el radio-blog!</strong>
+                    
+                </p>
+                <br /><br />
+
+                <div id="chat">
+                    <h3>Chat</h3>
+                    <br />
+                    <iframe src="http://chat.chatzona.org/index.html#nick=&channel=#StreaMetal📻🎸" width="100%" height="600"              frameborder="0"></iframe>
+                    <br />
+                    <small>Servicio por <a target="_blank" href="https://www.chatzona.org">ChatZona</a></small>
+                    <br /><br />
+                </div>
+                
+                <h4>Nota:</h4>
+                <p>En caso de que el reproductor principal no funcione, puede usar el reproductor alterno:</p>
+                
+                <audio controls="controls">
+                    <source src="http://s47.myradiostream.com:12746/;" type="audio/mpeg" />
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPRODUCTOR JavaScript - JQuery -->
+    <div class="player">
         <script>
-          jQuery(function () {
-            setTimeout(function () {
-              jQuery("#lbg_audio6_html5_shoutcast_1").audio6_html5({
-                radio_stream: "http://s47.myradiostream.com:12746/;",
-                radio_name: "StreaMetal | Emisora online",
-                playerWidth: 355,
-                imageHeight: 355,
-                skin: "whiteControllers",
-                responsive: true,
-                grabLastFmPhoto: true,
-                autoPlay: false,
-                songTitleColor: "#ffffff",
-                authorTitleColor: "#ffffff",
-                lineSeparatorColor: "#dba390",
-                radioStationColor: "#ffffff",
-                frameBehindTextColor: "#f14444",
-                frameBehindButtonsColor: "#3d1111",
-                sticky: true,
-                startMinified: true,
-                showOnlyPlayButton: false,
-                centerPlayer: true,
-                playerBorderSize: 0,
-                playerBorderColor: "#000000",
-                showFacebookBut: true,
-                facebookAppID: "",
-                facebookShareTitle: "StreaMetal | Emisora online",
-                facebookShareDescription: "La mejor radio por internet",
-                showTwitterBut: true,
-                showVolume: true,
-                showRadioStation: true,
-                showTitle: true,
-                showHistoryBut: true,
-                showHistory: true,
-                showHistoryOnInit: true,
-                translateReadingData: "cargando...",
-                historyTranslate: "HISTORIAL - Últimas canciones",
-                historyTitleColor: "#825959",
-                historyBgColor: "#faf6f2",
-                historyRecordBgColor: "transparent",
-                historyRecordBottomBorderColor: "transparent",
-                historyRecordSongColor: "#000000",
-                historyRecordSongBottomBorderColor: "#c97a7a",
-                historyRecordAuthorColor: "#525252",
-                numberOfThumbsPerScreen: 3,
-                historyPadding: 16,
-                historyRecordTitleLimit: 28,
-                historyRecordAuthorLimit: 36,
-                nowPlayingInterval: 35,
-                noImageAvailable:
-                  "https://cdn.mexiserver.com/imaghttps://1.bp.blogspot.com/-kFLGKWhr8as/X73w_TITWTI/AAAAAAAALQw/JZaYKX4Q1d05sqVC8yHdoa-D8t5Lwq0dgCPcBGAYYCw/w93-h49/Logo.pngenes/caratula-sonido.gif",
-              });
-            }, 1000);
-          });
+            jQuery(function () {
+                setTimeout(function () {
+                    jQuery("#lbg_audio6_html5_shoutcast_1").audio6_html5({
+                        radio_stream: "http://s47.myradiostream.com:12746/;",
+                        radio_name: "StreaMetal | Emisora online",
+                        playerWidth: 355,
+                        imageHeight: 355,
+                        skin: "whiteControllers",
+                        responsive: true,
+                        grabLastFmPhoto: true,
+                        autoPlay: false,
+                        songTitleColor: "#ffffff",
+                        authorTitleColor: "#ffffff",
+                        lineSeparatorColor: "#dba390",
+                        radioStationColor: "#ffffff",
+                        frameBehindTextColor: "#f14444",
+                        frameBehindButtonsColor: "#3d1111",
+                        sticky: true,
+                        startMinified: true,
+                        showOnlyPlayButton: false,
+                        centerPlayer: true,
+                        playerBorderSize: 0,
+                        playerBorderColor: "#000000",
+                        showFacebookBut: true,
+                        facebookAppID: "",
+                        facebookShareTitle: "StreaMetal | Emisora online",
+                        facebookShareDescription: "La mejor radio por internet",
+                        showTwitterBut: true,
+                        showVolume: true,
+                        showRadioStation: true,
+                        showTitle: true,
+                        showHistoryBut: true,
+                        showHistory: true,
+                        showHistoryOnInit: true,
+                        translateReadingData: "cargando...",
+                        historyTranslate: "HISTORIAL - Últimas canciones",
+                        historyTitleColor: "#825959",
+                        historyBgColor: "#faf6f2",
+                        historyRecordBgColor: "transparent",
+                        historyRecordBottomBorderColor: "transparent",
+                        historyRecordSongColor: "#000000",
+                        historyRecordSongBottomBorderColor: "#c97a7a",
+                        historyRecordAuthorColor: "#525252",
+                        numberOfThumbsPerScreen: 3,
+                        historyPadding: 16,
+                        historyRecordTitleLimit: 28,
+                        historyRecordAuthorLimit: 36,
+                        nowPlayingInterval: 35,
+                        noImageAvailable:
+                            "https://cdn.mexiserver.com/imaghttps://1.bp.blogspot.com/-kFLGKWhr8as/X73w_TITWTI/AAAAAAAALQw/JZaYKX4Q1d05sqVC8yHdoa-D8t5Lwq0dgCPcBGAYYCw/w93-h49/Logo.pngenes/caratula-sonido.gif",
+                    });
+                }, 1000);
+            });
         </script>
         <div class="audio6_html5">
-          <div id="lbg_audio6_html5_shoutcast_1"></div>
+            <div id="lbg_audio6_html5_shoutcast_1"></div>
         </div>
-        <!-- ETIQUETA audio REPRODUCTOR BÁSICO
-            <audio autoplay controls="controls">
-            <source
-              src="http://s47.myradiostream.com:12746/;"
-              type="audio/mpeg"
-            />
-          </audio>  
-        -->
-      </div>
-      <!-- FOOTER -->
+        <br /><br />
+    </div>
+    <!-- FOOTER -->
 
-      <div class="mt-5 p-4 bg-dark text-white text-left">
-        <span>
-          <a class="btn btn-link" href="https://streametal.blogspot.com/">StreaMetal | Emisora online</a>
+    <div class="mt-5 p-4 bg-dark text-white text-left">
+        <span class="footer">
+            <a class="btn btn-link" href="https://streametal.blogspot.com/">StreaMetal | Emisora online</a>
         </span>
-      </div>
-    </body>
-  </html>
+        <p class="love">
+            <i class="fa-solid fa-heart"></i>
+            Hecho con amor
+            <i class="fa-solid fa-heart"></i>
+        </p>
+    </div>
+
+    <!-- REPRODUCTOR SCRIPT -->
+    <script src="https://cdn.mexiserver.com/html5players/7/js/audio6_html5.js" type="text/javascript"></script>
+
+</body>
+
+</html> 
