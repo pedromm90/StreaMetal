@@ -5,13 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="Description" content="StreaMetal - Emisora online" />
     <meta name="Keywords"
         content="Power metal, Death metal, Heavy metal, Hard rock, Progressive Metal, Symphonic metal, Alternative rock, Melodic Death metal, Thrash metal, Folk metal" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>StreaMetal | Emisora online</title>
+    <!-- ESTILOS PARA LA PÁGINA -->
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&family=Nanum+Gothic:wght@700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -20,27 +22,32 @@
 
         body {
             font-size: 16px;
+            font-family: 'Alegreya Sans', sans-serif !important;
         }
 
         html {
             scroll-behavior: smooth;
         }
 
-        a.navbar-brand {
-            margin-left: 1em;
+        nav.barra-principal {
+            background-color: #ffffff !important;
         }
 
-        a.btn-link {
-            color: #ffffff;
-            text-decoration: none;
+        a>img.logo-radio {
+            width: 57%;
         }
 
-        a.nav-link:hover {
-            color: #f14444;
+        div.div-titulo {
+            padding-top: 2rem !important;
         }
 
-        a.btn-link:hover {
-            color: #f14444;
+        div.div-titulo>h3 {
+            margin-left: -100px !important;
+        }
+
+        div.div-titulo>h3,
+        div.en-vivo>h4 {
+            font-family: 'Nanum Gothic', sans-serif;
         }
 
         .carousel-item,
@@ -53,84 +60,26 @@
         }
 
         /*Flecha para hacer la pagina hacia arriba*/
-        .ir-arriba{
-            display:none;
-            background-repeat:no-repeat;
-            font-size:20px;
-            color:black;
-            cursor:pointer;
-            position:fixed;
-            bottom:10px;
-            right:10px;
-            z-index:2;
+        .ir-arriba {
+            display: none;
+            background-repeat: no-repeat;
+            font-size: 20px;
+            color: black;
+            cursor: pointer;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2;
         }
 
         img.d-block {
             height: 500px;
         }
 
-        div.collapse.navbar-collapse {
-            margin-right: 3em;
-            flex-grow: 0;
-        }
-
-        .footer, .love {
+        .footer,
+        .love {
             display: inline;
             text-align: left;
-        }
-
-        /* Facebook */
-        i.fa-facebook-f {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        i.fa-facebook-f,
-        p.fb {
-            display: inline;
-            font-size: 0.9em;
-            margin-left: 5px;
-        }
-
-        a.dropdown-item.fb:hover {
-            background: #1278f3;
-            color: #ffffff;
-        }
-
-        /* Twitter */
-        i.fa-twitter {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        i.fa-twitter,
-        p.tw {
-            display: inline;
-            font-size: 0.9em;
-            margin-left: 2.4px;
-        }
-
-        a.dropdown-item.tw:hover {
-            background: #1d9bf0;
-            color: #ffffff;
-        }
-
-        /* Instagram */
-        i.fa-instagram {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        i.fa-instagram,
-        p.ig {
-            display: inline;
-            font-size: 0.9em;
-            margin-left: 5px;
-        }
-
-        a.dropdown-item.ig:hover {
-            background: #ca3451;
-            color: #ffffff;
         }
 
         /* Corazones */
@@ -144,49 +93,104 @@
             font-weight: bold;
         }
 
-        @media only screen and (max-width: 990px) {
-            .logo-radio {
-                width: 330px;
-            }
+        p.texto-contenido {
+            text-align: justify;
+        }
 
-            div.collapse.navbar-collapse,
-            div.dropdown-menu.show {
-                text-align: center;
-            }
+        span.footer>a {
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        span.footer>a:hover {
+            color: #f14444 !important;
+            transition: .5s !important;
+        }
+
+        /* STREAM DEL CANAL DE TWITCH */
+        #twitch {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+        }
+
+        #twitch object,
+        #twitch iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
         @media only screen and (max-width: 768px) {
-            .logo-radio {
-                width: 290px;
+
+            div.div-imagen,
+            div.div-titulo {
+                display: block !important;
+                width: 100% !important;
             }
 
-            div.collapse.navbar-collapse {
+            div.div-imagen>a>img.logo-radio {
+                margin: 0 auto !important;
+                width: 18%;
+            }
+
+            div.div-titulo {
+                margin-left: 7% !important;
+                margin-top: -7% !important;
+
+            }
+
+            div.div-titulo>h3 {
                 text-align: center;
             }
 
-            div.dropdown-menu.show {
-                margin: auto;
-                width: 20px;
-                text-align: justify;
+            div.contenido-principal,
+            div.descripcion,
+            div.en-vivo,
+            div.footer-p,
+            span.footer {
+                margin: 0 auto !important;
+                display: block !important;
+                width: 100% !important;
+            }
+
+            span.footer {
+                text-align: center !important;
             }
         }
 
         @media only screen and (max-width: 480px) {
-            .logo-radio {
-                width: 240px;
+            div.div-imagen>a>img.logo-radio {
+                margin: 0 auto !important;
+                width: 25%;
             }
 
-            div.collapse.navbar-collapse {
-                text-align: center;
+
+            div.div-titulo {
+                margin-left: 10% !important;
+                margin-top: -8% !important;
             }
 
-            div.dropdown-menu.show {
-                margin: auto;
-                width: 20px;
-                text-align: justify;
+            div.contenido-principal,
+            div.descripcion,
+            div.en-vivo,
+            div.footer-p,
+            span.footer {
+                margin: 0 auto !important;
+                display: block !important;
+                width: 100% !important;
+            }
+
+            span.footer {
+                text-align: center !important;
             }
         }
     </style>
+
     <!-- LINKS EXTERNOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet"
@@ -199,8 +203,9 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- html5players -->
     <link href="https://cdn.mexiserver.com/html5players/7/audio6_html5.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
@@ -208,66 +213,23 @@
     <script src="https://cdn.mexiserver.com/html5players/7/js/jquery.mousewheel.min.js" type="text/javascript"></script>
     <script src="https://cdn.mexiserver.com/html5players/7/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
 
-    <!-- JS Boostrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-        integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-        integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-        crossorigin="anonymous"></script>
-
 </head>
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <!-- GOOGLE TRANSLATE -->
-        <div id="google_translate_element" style="position:fixed;top:0;right:0;"></div>
-
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-            }
-        </script>
-
-        <!-- API Google Translate -->
-        <script type="text/javascript"
-            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top barra-principal">
         <div class="container-fluid">
-            <a class="navbar-brand" href="http://streametal.blogspot.com/">
-                <img src="https://3.bp.blogspot.com/-WBG3KRMGcPw/X8FxPmShXlI/AAAAAAAALRg/1WH8Z403vcc3avGnP5LBMq8xYPsrcdH9gCK4BGAYYCw/s1600/StreaMetal.png"
-                    alt="StreaMetal | Emisora online" class="logo-radio" />
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="http://streametal.blogspot.com/">Inicio
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#acerca">Sobre la emisora</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#chat">Chat</a>
-                    </li>
-                    
-                </ul>
-                <!-- <form class="d-flex">
-            <input
-              class="form-control me-sm-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form> -->
+            <div class="row">
+                <div class="col-3 div-imagen">
+                    <a class="navbar-brand
+                    " href="http://streametal.blogspot.com/">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3nWE1HWfHXiFoZ9rYhAn99eBUXkk_jhplYkszkGdLj8a-gYrYLTLaqCzFlSbOizToEdZSwgmKePs-zrbQJWtDyR5b_o-AbWL1vFDs_yHtXfbW2aw_wrYSyx6nJetCmANBy75fiV8wkUrFGovft73yYNdxjsq4sBLI2P1PDNdw9eYLJ6DhsgTifK2-9SM/s16000/logo_update.png"
+                            alt="StreaMetal | Emisora online" class="logo-radio" />
+                    </a>
+                </div>
+                <div class="col-9 div-titulo">
+                    <h3>StreaMetal | Emisora online</h3>
+                </div>
             </div>
         </div>
     </nav>
@@ -390,121 +352,57 @@
         </button>
     </div>
 
-    <!-- PLANTILLA -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row">
-                <div
-                    class="col-xl-5 col-lg-6 d-flex justify-content-center video-box align-items-stretch position-relative">
-                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
-                </div>
-                <h2 id="acerca">StreaMetal</h2> <a href="http://streametal.blogspot.com"><h5>(Pon a funcionar la radio y el chat)</h5></a>
-                <p>
+    <!-- CONTENIDO -->
+    <div class="container mt-3 pt-3 contenido-principal">
+        <div class="row descripcion">
+            <div class="col-6 descripcion">
+                <p class="text- lh-base texto-contenido descripcion">
                     Bienvenidos a StreaMetal, su emisora online. Radio-blog hecho
                     desde Colombia <i class="flag flag-colombia"></i> para todo el mundo. La música programada es para
-                    compartir con el público, sin <strong>anuncios</strong>, y más libertad de contenido.
+                    compartir con el público, sin <strong>anuncios</strong>, y más libertad de contenido. Blog sin ánimo
+                    de
+                    lucro, y para los amantes del <strong>Rock y Metal</strong>. Ahora con canal de <strong><a
+                            href="https://www.twitch.tv/streametal_online" target="_blank">Twitch</a></strong>, para
+                    interactuar en vivo.
+                    Pueden dirigirse directamente al canal para ingresar al chat y programar su música rock y metal
+                    favoritos, también
+                    conversar y pasar un rato agradable. <strong>¡Gracias por visitar el radio-blog!</strong>
                 </p>
+                <br />
+                <div class="row en-vivo">
+                    <div class="col en-vivo">
+                        <h4 class="carousel-title text-center">En vivo</h4>
+                        <!-- REPRODUCTOR HTML5 | JavaScript - JQuery -->
+                        <div class="player">
+                            <div class="audio6_html5">
+                                <div id="lbg_audio6_html5_shoutcast_1"></div>
+                            </div>
+                            <br /><br />
+                        </div>
 
-                <p>
-                    Blog sin ánimo de lucro, y para los amantes del <strong>Rock y Metal</strong>, está habilitado el chat <strong>#StreaMetal📻🎸</strong> para interactuar con los que gustan escuchar buena música, conversar y pasar un rato agradable. También pueden solicitar sus canciones <strong>Rock y Metal</strong> favoritos.
-                </p>
-
-                <p>
-                    Las peticiones se puede realizar en el chat a <strong>@Radio-StreaMetal</strong>.
-                </p>
-                
-                <p>
-                    <strong>¡Gracias por visitar el radio-blog!</strong>
-                    
-                </p>
-                <br /><br />
-
-                <div id="chat">
-                    <h3>Chat</h3>
-                    <br />
-                    <iframe src="http://chat.chatzona.org/index.html#nick=&channel=#StreaMetal📻🎸" width="100%" height="600"              frameborder="0"></iframe>
-                    <br />
-                    <small>Servicio por <a target="_blank" href="https://www.chatzona.org">ChatZona</a></small>
-                    <br /><br />
+                        <h4 class="carousel-title text-center">Reproductor alternativo</h4>
+                        <audio controls="controls" class="mx-auto w-100">
+                            <source src="http://s47.myradiostream.com:12746/;" type="audio/mpeg" />
+                        </audio>
+                    </div>
                 </div>
-                
-                <h4>Nota:</h4>
-                <p>En caso de que el reproductor principal no funcione, puede usar el reproductor alterno:</p>
-                
-                <audio controls="controls">
-                    <source src="http://s47.myradiostream.com:12746/;" type="audio/mpeg" />
-                </audio>
+            </div>
+
+            <div class="col-6 py-3 en-vivo">
+                <div id="chat">
+                    <h4 class="carousel-title text-center">Hablemos por Twitch</h4>
+                    <div id="twitch" class="hide"></div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- REPRODUCTOR JavaScript - JQuery -->
-    <div class="player">
-        <script>
-            jQuery(function () {
-                setTimeout(function () {
-                    jQuery("#lbg_audio6_html5_shoutcast_1").audio6_html5({
-                        radio_stream: "http://s47.myradiostream.com:12746/;",
-                        radio_name: "StreaMetal | Emisora online",
-                        playerWidth: 355,
-                        imageHeight: 355,
-                        skin: "whiteControllers",
-                        responsive: true,
-                        grabLastFmPhoto: true,
-                        autoPlay: false,
-                        songTitleColor: "#ffffff",
-                        authorTitleColor: "#ffffff",
-                        lineSeparatorColor: "#dba390",
-                        radioStationColor: "#ffffff",
-                        frameBehindTextColor: "#f14444",
-                        frameBehindButtonsColor: "#3d1111",
-                        sticky: true,
-                        startMinified: true,
-                        showOnlyPlayButton: false,
-                        centerPlayer: true,
-                        playerBorderSize: 0,
-                        playerBorderColor: "#000000",
-                        showFacebookBut: true,
-                        facebookAppID: "",
-                        facebookShareTitle: "StreaMetal | Emisora online",
-                        facebookShareDescription: "La mejor radio por internet",
-                        showTwitterBut: true,
-                        showVolume: true,
-                        showRadioStation: true,
-                        showTitle: true,
-                        showHistoryBut: true,
-                        showHistory: true,
-                        showHistoryOnInit: true,
-                        translateReadingData: "cargando...",
-                        historyTranslate: "HISTORIAL - Últimas canciones",
-                        historyTitleColor: "#825959",
-                        historyBgColor: "#faf6f2",
-                        historyRecordBgColor: "transparent",
-                        historyRecordBottomBorderColor: "transparent",
-                        historyRecordSongColor: "#000000",
-                        historyRecordSongBottomBorderColor: "#c97a7a",
-                        historyRecordAuthorColor: "#525252",
-                        numberOfThumbsPerScreen: 3,
-                        historyPadding: 16,
-                        historyRecordTitleLimit: 28,
-                        historyRecordAuthorLimit: 36,
-                        nowPlayingInterval: 35,
-                        noImageAvailable:
-                            "https://cdn.mexiserver.com/imaghttps://1.bp.blogspot.com/-kFLGKWhr8as/X73w_TITWTI/AAAAAAAALQw/JZaYKX4Q1d05sqVC8yHdoa-D8t5Lwq0dgCPcBGAYYCw/w93-h49/Logo.pngenes/caratula-sonido.gif",
-                    });
-                }, 1000);
-            });
-        </script>
-        <div class="audio6_html5">
-            <div id="lbg_audio6_html5_shoutcast_1"></div>
-        </div>
-        <br /><br />
     </div>
-    <!-- FOOTER -->
 
-    <div class="mt-5 p-4 bg-dark text-white text-left">
+
+
+    <!-- FOOTER -->
+    <div class="mt-5 p-4 bg-dark text-white text-center footer-p">
         <span class="footer">
-            <a class="btn btn-link" href="https://streametal.blogspot.com/">StreaMetal | Emisora online</a>
+            <a class="btn btn-link text-white" href="https://streametal.blogspot.com/">StreaMetal | Emisora online</a>
         </span>
         <p class="love">
             <i class="fa-solid fa-heart"></i>
@@ -516,6 +414,104 @@
     <!-- REPRODUCTOR SCRIPT -->
     <script src="https://cdn.mexiserver.com/html5players/7/js/audio6_html5.js" type="text/javascript"></script>
 
-</body>
+    <!-- SCRIPT PARA EL REPRODUCTOR HTML5 -->
+    <script>
+        jQuery(function () {
+            setTimeout(function () {
+                jQuery("#lbg_audio6_html5_shoutcast_1").audio6_html5({
+                    radio_stream: "http://s47.myradiostream.com:12746/;",
+                    radio_name: "StreaMetal | Emisora online",
+                    playerWidth: 355,
+                    imageHeight: 355,
+                    skin: "whiteControllers",
+                    responsive: true,
+                    grabLastFmPhoto: true,
+                    autoPlay: false,
+                    songTitleColor: "#ffffff",
+                    authorTitleColor: "#ffffff",
+                    lineSeparatorColor: "#dba390",
+                    radioStationColor: "#ffffff",
+                    frameBehindTextColor: "#f14444",
+                    frameBehindButtonsColor: "#3d1111",
+                    sticky: false,
+                    startMinified: true,
+                    showOnlyPlayButton: false,
+                    centerPlayer: true,
+                    playerBorderSize: 0,
+                    playerBorderColor: "#000000",
+                    showFacebookBut: true,
+                    facebookAppID: "",
+                    facebookShareTitle: "StreaMetal | Emisora online",
+                    facebookShareDescription: "La mejor radio por internet",
+                    showTwitterBut: true,
+                    showVolume: true,
+                    showRadioStation: true,
+                    showTitle: true,
+                    showHistoryBut: true,
+                    showHistory: true,
+                    showHistoryOnInit: true,
+                    translateReadingData: "cargando...",
+                    historyTranslate: "HISTORIAL - Últimas canciones",
+                    historyTitleColor: "#825959",
+                    historyBgColor: "#faf6f2",
+                    historyRecordBgColor: "transparent",
+                    historyRecordBottomBorderColor: "transparent",
+                    historyRecordSongColor: "#000000",
+                    historyRecordSongBottomBorderColor: "#c97a7a",
+                    historyRecordAuthorColor: "#525252",
+                    numberOfThumbsPerScreen: 3,
+                    historyPadding: 16,
+                    historyRecordTitleLimit: 28,
+                    historyRecordAuthorLimit: 36,
+                    nowPlayingInterval: 35,
+                    noImageAvailable:
+                        "https://cdn.mexiserver.com/imaghttps://1.bp.blogspot.com/-kFLGKWhr8as/X73w_TITWTI/AAAAAAAALQw/JZaYKX4Q1d05sqVC8yHdoa-D8t5Lwq0dgCPcBGAYYCw/w93-h49/Logo.pngenes/caratula-sonido.gif",
+                });
+            }, 1000);
+        });
+    </script>
+    
+    <!-- EMBED CANAL TWITCH script -->
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+    
+    <!-- CÓDIGO JS CANAL TWITCH -->
+    <script type="text/javascript">
+        var options = {
+            channel: "streametal_online", // TODO: Change this to the streams username you want to embed
+            width: 640,
+            height: 360,
+        };
+        var player = new Twitch.Player("twitch", options);
 
-</html> 
+        player.addEventListener(Twitch.Player.READY, initiate)
+
+        function initiate() {
+            player.addEventListener(Twitch.Player.ONLINE, handleOnline);
+            player.addEventListener(Twitch.Player.OFFLINE, handleOffline);
+            player.removeEventListener(Twitch.Player.READY, initiate);
+        }
+
+        function handleOnline() {
+            document.getElementById("twitch").classList.remove('hide');
+            player.removeEventListener(Twitch.Player.ONLINE, handleOnline);
+            player.addEventListener(Twitch.Player.OFFLINE, handleOffline);
+            player.setMuted(false);
+        }
+
+        function handleOffline() {
+            document.getElementById("twitch").classList.add('hide');
+            player.removeEventListener(Twitch.Player.OFFLINE, handleOffline);
+            player.addEventListener(Twitch.Player.ONLINE, handleOnline);
+            player.setMuted(true);
+        }
+    </script>
+
+    <!-- JS Boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>
