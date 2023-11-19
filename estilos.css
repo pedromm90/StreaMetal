@@ -84,6 +84,17 @@ span.nota {
     text-align: justify;
 }
 
+a.txt-twitch {
+    color: #f14444;
+    text-decoration: none;
+}
+
+a.txt-twitch:hover {
+    color: #000 !important;
+    text-decoration: underline;
+    transition: .5s !important;
+}
+
 span.footer>a {
     text-decoration: none;
     font-weight: 500;
@@ -101,6 +112,17 @@ a.popup {
 }
 
 a.popup:hover {
+    color: #f14444 !important;
+    transition: .5s !important;
+}
+
+p.love > a.github {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+p.love > a.github:hover {
     color: #f14444 !important;
     transition: .5s !important;
 }
