@@ -19,6 +19,13 @@
         }
     </script>
 
+    <!-- Popup chat -->
+    <script type="text/javascript">
+        function popUp(URL) {
+            window.open(URL, 'Chat StreaMetal', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=200,height=500,left = 390,top = 50');
+        }
+    </script>
+
     <!-- Links externos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <link rel="stylesheet"
@@ -214,6 +221,10 @@
                             <br /><br />
                         </div>
 
+                        <!-- Chat popup -->
+                        <a class="popup" href="javascript:popUp('chat-popup.html')">
+                            <i class="fa-solid fa-up-right-from-square" title="Chat StreaMetal"></i>
+                        </a>
                         <h4 class="carousel-title text-center">Reproductor alternativo</h4>
                         <audio controls="controls" class="mx-auto w-100">
                             <source
