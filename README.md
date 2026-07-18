@@ -1,4 +1,4 @@
-# StreaMetal
+# StreaMetal (DESCONTNUADO)
  Radio-blog: StreaMetal - Emisora online
 
 StreaMetal - Emisora online es un proyecto pensado en el año 2013. El blog tuvo actualizaciones por medio de templates modernos para Blogger. Esta vez está alojado gracias al diseño html primario. Creado con html, css por medio de bootstrap y elementos de https://cdn.mexiserver.com/ para su ejecución en JavaScript.
